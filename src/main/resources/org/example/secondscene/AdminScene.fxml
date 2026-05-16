@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.secondscene.Scene2Controller"
+      styleClass="admin-bg"
+      stylesheets="@styles.css"
+      prefWidth="920" prefHeight="620">
+
+    <!-- Top bar -->
+    <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
+        <Label text="UniBook" styleClass="title-label"/>
+        <Label text="ADMIN" styleClass="badge"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <Label fx:id="welcomeLabel" styleClass="subtitle-label"/>
+        <Button text="Logout" onAction="#logout" styleClass="btn-danger"/>
+    </HBox>
+
+    <!-- Main content -->
+    <HBox VBox.vgrow="ALWAYS">
+
+        <!-- Left: Form panel -->
+        <VBox styleClass="form-panel" prefWidth="330" minWidth="300" spacing="12">
+            <padding><Insets top="24" bottom="24" left="20" right="20"/></padding>
+
+            <Label text="EVENT DETAILS" styleClass="section-label"/>
+
+            <VBox spacing="5">
+                <Label text="Title" styleClass="field-label"/>
+                <TextField fx:id="titleField" promptText="Event title" styleClass="input-field"/>
+            </VBox>
+            <VBox spacing="5">
+                <Label text="Category" styleClass="field-label"/>
+                <TextField fx:id="categoryField" promptText="e.g. Conference, Workshop" styleClass="input-field"/>
+            </VBox>
+            <VBox spacing="5">
+                <Label text="Description" styleClass="field-label"/>
+                <TextField fx:id="descriptionField" promptText="Brief description" styleClass="input-field"/>
+            </VBox>
+            <HBox spacing="10">
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Date" styleClass="field-label"/>
+                    <TextField fx:id="dateField" promptText="YYYY-MM-DD" styleClass="input-field"/>
+                </VBox>
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Time" styleClass="field-label"/>
+                    <TextField fx:id="timeField" promptText="HH:MM" styleClass="input-field"/>
+                </VBox>
+            </HBox>
+            <VBox spacing="5">
+                <Label text="Location" styleClass="field-label"/>
+                <TextField fx:id="locationField" promptText="Venue or address" styleClass="input-field"/>
+            </VBox>
+            <VBox spacing="5">
+                <Label text="Capacity" styleClass="field-label"/>
+                <TextField fx:id="capacityField" promptText="Max attendees" styleClass="input-field"/>
+            </VBox>
+
+            <Label fx:id="notificationLabel" wrapText="true"/>
+
+            <Button fx:id="addEventButton" text="Add Event" onAction="#handleAddEvent"
+                    maxWidth="Infinity" styleClass="btn-primary"/>
+        </VBox>
+
+        <!-- Right: Event list -->
+        <VBox HBox.hgrow="ALWAYS" spacing="12">
+            <padding><Insets top="24" bottom="24" left="20" right="20"/></padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="ALL EVENTS" styleClass="section-label"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <Button text="Edit Selected"   onAction="#handleEditEvent"   styleClass="btn-secondary"/>
+                <Button text="Delete Selected" onAction="#handleDeleteEvent" styleClass="btn-danger"/>
+            </HBox>
+
+            <ListView fx:id="listView" VBox.vgrow="ALWAYS" styleClass="list-view"/>
+        </VBox>
+    </HBox>
+</VBox>

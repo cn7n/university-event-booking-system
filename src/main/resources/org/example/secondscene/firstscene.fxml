@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="org.example.secondscene.Scene1Controller"
+           styleClass="login-bg"
+           stylesheets="@styles.css"
+           prefWidth="500" prefHeight="440">
+
+    <VBox styleClass="card" alignment="CENTER" spacing="22"
+          maxWidth="380" maxHeight="360">
+        <padding><Insets top="44" bottom="44" left="44" right="44"/></padding>
+
+        <VBox spacing="6" alignment="CENTER">
+            <Label text="UniBook" styleClass="title-label"/>
+            <Label text="University Event Booking System" styleClass="subtitle-label"/>
+        </VBox>
+
+        <VBox spacing="14">
+            <VBox spacing="6">
+                <Label text="USERNAME" styleClass="section-label"/>
+                <TextField fx:id="nameTextField" promptText="Enter your username" styleClass="input-field"/>
+            </VBox>
+            <VBox spacing="6">
+                <Label text="PASSWORD" styleClass="section-label"/>
+                <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="input-field"/>
+            </VBox>
+        </VBox>
+
+        <Label fx:id="AlertLabel" styleClass="error-label" alignment="CENTER" wrapText="true"/>
+
+        <Button text="Sign In" onAction="#login" maxWidth="Infinity" styleClass="btn-primary"/>
+
+        <Label text="admin/admin  or  user/user" styleClass="subtitle-label" alignment="CENTER"/>
+    </VBox>
+</StackPane>
